@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscrição Confirmada - Workshop Carreira Médica de Elite</title>
+    <title>⚠️ ATENÇÃO: Esta página é exibida apenas uma vez. Não feche antes do passo final.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +16,25 @@
             font-family: 'Playfair Display', serif;
         }
     </style>
+<script>
+if(!document.querySelector('script[src="https://player.pandavideo.com.br/api.v2.js"]')){
+    let s=document.createElement('script');
+    s.src='https://player.pandavideo.com.br/api.v2.js';
+    s.async=true;
+    document.head.appendChild(s);
+}
+window.pandascripttag = window.pandascripttag || [];
+window.pandascripttag.push(function (){
+    const panda_id_player = 'panda-392a3a9a-8d70-4a4e-8f18-13e5bec20bde';
+    // @ts-ignore
+    const p=new PandaPlayer(panda_id_player,{
+        onReady(){ 
+            p.loadWindowScreen({panda_id_player});
+            p.setPoster('https://raw.githubusercontent.com/contatochip25-ui/DR.THIAGO-COSTA/main/public/images/fotosorrindo.jpg');
+        }
+    });
+})
+</script>
 <script type="importmap">
 {
   "imports": {

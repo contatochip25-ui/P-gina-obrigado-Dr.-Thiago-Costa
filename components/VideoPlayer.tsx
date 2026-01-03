@@ -1,29 +1,30 @@
-
 import React from 'react';
 
 export const VideoPlayer: React.FC = () => {
   return (
-    <div className="relative group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
-      <div className="aspect-video bg-slate-800 flex items-center justify-center relative">
-        {/* Placeholder image/thumbnail for a medical professional context */}
-        <img 
-          src="https://picsum.photos/id/119/1200/675" 
-          alt="Thumbnail" 
-          className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
-        />
-        
-        <div className="z-10 text-center space-y-4 px-6">
-          <button className="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:scale-110 transition-transform">
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-          <p className="text-slate-300 font-medium md:text-lg">Assista a esta breve orientação (60s)</p>
-        </div>
-
-        {/* Overlay reflection for premium feel */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+    <div className="space-y-4">
+      <div className="text-center mb-2">
+        <p className="text-slate-300 font-medium md:text-lg">Assista à orientação rápida (60s)</p>
       </div>
+      <div className="relative group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+        <div className="aspect-video bg-slate-800 relative">
+          <iframe 
+            id="panda-392a3a9a-8d70-4a4e-8f18-13e5bec20bde" 
+            src="https://player-vz-e907bd19-b8d.tv.pandavideo.com.br/embed/?v=392a3a9a-8d70-4a4e-8f18-13e5bec20bde&iosFakeFullscreen=true" 
+            style={{ border: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
+            allowFullScreen={true}
+            // @ts-ignore
+            fetchPriority="high"
+            // @ts-ignore
+            poster="https://raw.githubusercontent.com/contatochip25-ui/DR.THIAGO-COSTA/main/public/images/fotosorrindo.jpg"
+            title="Panda Video Player"
+          ></iframe>
+        </div>
+      </div>
+      <p className="text-slate-400 text-center font-light leading-relaxed">
+        Essa breve mensagem explica como garantir seu acesso completo e aproveitar o Workshop ao máximo.
+      </p>
     </div>
   );
 };
