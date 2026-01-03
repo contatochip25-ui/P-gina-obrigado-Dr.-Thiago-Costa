@@ -1,15 +1,13 @@
-
 import React, { useEffect } from 'react';
-import { Header } from './components/Header';
-import { AlertBanner } from './components/AlertBanner';
-import { VideoPlayer } from './components/VideoPlayer';
-import { ActionCard } from './components/ActionCard';
-import { EventDetails } from './components/EventDetails';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header.tsx';
+import { AlertBanner } from './components/AlertBanner.tsx';
+import { VideoPlayer } from './components/VideoPlayer.tsx';
+import { ActionCard } from './components/ActionCard.tsx';
+import { EventDetails } from './components/EventDetails.tsx';
+import { Footer } from './components/Footer.tsx';
 
 const App: React.FC = () => {
   useEffect(() => {
-    // Analytics or scroll behavior could go here
     window.scrollTo(0, 0);
   }, []);
 
