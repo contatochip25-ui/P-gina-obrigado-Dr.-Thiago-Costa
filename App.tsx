@@ -35,7 +35,7 @@ const App: React.FC = () => {
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-slate-950/80 backdrop-blur-md border-t border-slate-800 md:hidden z-50">
         <a 
-          href="https://wa.me/seulinkoficial" 
+          href="https://chat.whatsapp.com/JC1ut2SVR3g2CRvPjskHYd" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-lg transition-all active:scale-95"

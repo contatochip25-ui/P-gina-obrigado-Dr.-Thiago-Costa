@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const ActionCard: React.FC = () => {
@@ -20,7 +19,7 @@ export const ActionCard: React.FC = () => {
 
         <div className="space-y-6">
           <a 
-            href="https://wa.me/seulinkoficial" 
+            href="https://chat.whatsapp.com/JC1ut2SVR3g2CRvPjskHYd" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center w-full py-5 bg-emerald-600 hover:bg-emerald-500 text-white text-xl font-bold rounded-2xl shadow-[0_0_40px_rgba(16,185,129,0.2)] transition-all hover:-translate-y-1 active:scale-95 group"
