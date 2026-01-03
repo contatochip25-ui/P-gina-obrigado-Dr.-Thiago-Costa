@@ -1,42 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export const VideoPlayer: React.FC = () => {
   const videoId = "392a3a9a-8d70-4a4e-8f18-13e5bec20bde";
   const elementId = `panda-${videoId}`;
   const posterUrl = "https://raw.githubusercontent.com/contatochip25-ui/DR.THIAGO-COSTA/main/public/images/fotosorrindo.jpg";
+  const initializedRef = useRef(false);
   
   useEffect(() => {
+    // Previne a inicialização múltipla em ambientes de desenvolvimento (React Strict Mode)
+    if (initializedRef.current) return;
+
     const initPanda = () => {
       // @ts-ignore
       if (window.PandaPlayer) {
         // @ts-ignore
         const p = new window.PandaPlayer(elementId, {
           onReady() {
-            p.loadWindowScreen({ panda_id_player: elementId });
-            p.setPoster(posterUrl);
+            if (p && typeof p.loadWindowScreen === 'function') {
+              p.loadWindowScreen({ panda_id_player: elementId });
+            }
           }
         });
+        initializedRef.current = true;
       } else {
-        // Caso o script ainda esteja carregando, adiciona à fila global
+        // Fallback para quando o script está em carregamento
         // @ts-ignore
         window.pandascripttag = window.pandascripttag || [];
         // @ts-ignore
         window.pandascripttag.push(function() {
+          if (initializedRef.current) return;
           // @ts-ignore
           const p = new window.PandaPlayer(elementId, {
             onReady() {
-              p.loadWindowScreen({ panda_id_player: elementId });
-              p.setPoster(posterUrl);
+              if (p && typeof p.loadWindowScreen === 'function') {
+                p.loadWindowScreen({ panda_id_player: elementId });
+              }
             }
           });
+          initializedRef.current = true;
         });
       }
     };
 
-    // Pequeno delay para garantir que o React montou o iframe no DOM real
-    const timeout = setTimeout(initPanda, 100);
+    // Pequeno delay para garantir que o React montou o iframe no DOM real antes da API tentar acessá-lo
+    const timeout = setTimeout(initPanda, 50);
     return () => clearTimeout(timeout);
-  }, [elementId, posterUrl]);
+  }, [elementId]);
 
   return (
     <div className="space-y-4">
@@ -47,7 +56,7 @@ export const VideoPlayer: React.FC = () => {
         <div className="aspect-video bg-slate-800 relative">
           <iframe 
             id={elementId}
-            src={`https://player-vz-e907bd19-b8d.tv.pandavideo.com.br/embed/?v=${videoId}&iosFakeFullscreen=true`}
+            src={`https://player-vz-e907bd19-b8d.tv.pandavideo.com.br/embed/?v=${videoId}&iosFakeFullscreen=true&poster=${encodeURIComponent(posterUrl)}`}
             style={{ border: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
             allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
             allowFullScreen={true}
